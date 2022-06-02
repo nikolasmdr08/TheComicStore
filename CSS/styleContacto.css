@@ -1,0 +1,71 @@
+.contenido{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.contenido iframe{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.principal span{
+    margin: 5px;
+    font-size: 20px;
+}
+
+.contacto{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contacto form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.contacto form input, .contacto form textarea{
+    border-radius: 5px;;
+}
+
+@media (min-width: 768px) {
+    .contenido{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .contenido iframe{
+        height: auto;
+        width: 50%;
+        margin-top: 10px;;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #contactoForm{
+        height: auto;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contacto{
+        width: 90%;
+        align-self: center;
+    }
+
+    #tituloContacto{
+        margin: 10px;
+        font-size: 30px;
+    }
+}
