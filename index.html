@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-    <script src="JS/script.js"></script>
 </head>
 <body>
     <!-- header -->
@@ -25,10 +24,16 @@
         </div>
     </nav>
     <div id="notificacion">
+        <select id="moneda">
+            <option id="PE" value="PE"> ARS </option>
+            <option id="DO" value="DO"> USD </option>
+            <option id="EU" value="EU"> EUR </option>
+        </select>
         <span>Envio Gratis a toda la Argentina</span>
         <div id="links">
             <i class="bi bi-person"></i>
-            <i class="bi bi-basket3"></i>
+            <a><i id="car" class="bi bi-basket3"></i></a>
+            <span id="itemsCar">0</span>
         </div>
     </div>
     <!-- end header -->
@@ -144,5 +149,17 @@
         </div>
     </div>
     <!-- END footer -->
+    <script>
+        if(parseInt(localStorage.getItem("cantItems"))>0){
+            cantItems = parseInt(localStorage.getItem("cantItems"))
+        }
+        else{
+            cantItems = 0
+        }
+
+        
+        let spanCarrito = document.getElementById("itemsCar")
+        spanCarrito.innerHTML = cantItems
+    </script>
 </body>
 </html>

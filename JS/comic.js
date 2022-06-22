@@ -1,0 +1,18 @@
+let items = [
+    {nombre: "THE AMAZING SPIDER-MAN 06 PELIGROS Y AMENAZAS", precio: 1300, img:"9786076360842" },
+    {nombre: "I KILL GIANTS (TITAN EDITION)", precio: 2600, img:"9789874068675" } ,
+    {nombre: "X-MEN 12 AMANECER X PARTE 08", precio: 1200, img:"9786075688954" } ,
+    {nombre: "TONY STARK IRON MAN 06 IRON MAN 2020 PARTE 02 DE 03", precio: 960, img:"9786075689104" } ,
+    {nombre: "DEADPOOL 04 REY DEADPOOL", precio: 1800, img:"9786075688343" } ,
+    {nombre: "CAPITAN AMERICA 03 LA LEYENDA DE STEVE", precio: 1200, img:"9786075688480" } ,
+    {nombre: "DAREDEVIL 03 A TRAVES DEL INFIERNO", precio: 1200, img:"9786076360927" } ,
+    {nombre: "VALKYRIA JANE FOSTER 01 LO SAGRADO Y LO PROFANO", precio: 1000, img:"9786075688404" } ,
+    {nombre: "WOLVERINE LA GUARDIA DEL INFINITO (HC)", precio: 1600, img:"9786075685694" } ,
+    {nombre: "DOCTOR STRANGE CONTRA DRACULA", precio: 2040, img:"9786076360200" } ,
+    {nombre: "XERXES TOMO UNICO", precio: 1800, img:"9788417699635" } ,
+    {nombre: "GUERREROS SECRETOS 01 (HC) UN NUEVO PRINCIPIO PARA EL MUNDO", precio: 750, img:"9788491673002" } ,
+    {nombre: "THE BOYS DEAR BECKY", precio: 750, img:"9789874068576" } ,
+    {nombre: "LOS CUATRO FANTASTICOS 02 SR Y SRA GRIM", precio: 1000, img:"9786075684628" } ,
+    {nombre: "CAPITAN AMERICA DE REMENDER (HC) 02 EL CLAVO DE HIERRO", precio: 3500, img:"9788491678700" } ,
+    {nombre: "MASACRE (HC) LOS DESAFIOS", precio: 3050, img:"9788413348650" } 
+]

@@ -50,17 +50,13 @@ nav #navbarNav{
     margin-top: 0px;
     margin-left: -10px;
     width: 100%;
-}
-
-#notificacion span{
     display: flex;
-    justify-content: left;
-    margin-left: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
 }
 
 #links {
-    position: relative;
-    top: -20px;
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -68,6 +64,17 @@ nav #navbarNav{
 
 #links i {
     padding-left: 10px;
+}
+
+#itemsCar {    
+    margin-left: -10px;
+    margin-top: -6px;
+    background-color: green;
+    border-radius: 12px;
+    height: 19px;
+    width: 20px;
+    padding: 1px;
+    justify-content: center;
 }
 
 .seccion_noticias{
@@ -136,6 +143,53 @@ nav #navbarNav{
     flex: 1 1 auto;
 }
 
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.card_item {
+    background-color: #AEBBD9;
+    width: 185px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    flex-wrap: nowrap;
+    justify-content: space-between;    
+}
+.card_item img{
+    border-radius: 15px;
+    padding: 10px;
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+}
+
+.card_item .nombre{
+    color: azure;
+    font-size: small;
+}
+
+.card_item .precio{
+    color: azure;
+    font-size: xx-large;
+}
+
+.card_item a i{
+    color: #013765;
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 40px;
+}
+
+
 @media (min-width: 768px) {
 
     #navbar {
@@ -178,20 +232,37 @@ nav #navbarNav{
         right: 0;
     }
 
+    #notificacion{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
     #notificacion span{
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
     }
     
 
     #links {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        position: relative;
-        top: -20px;
-        width: 10%;
-        left: 80%;
+    }
+
+    #links span {
+        justify-content: center;
+    }
+
+    #itemsCar {    
+        margin-left: -10px;
+        margin-top: -6px;
+        background-color: green;
+        border-radius: 12px;
+        height: 19px;
+        width: 20px;
+        padding: 1px;
+        justify-content: center;
+        text-align: center;
     }
 
     .seccion_noticias span {
