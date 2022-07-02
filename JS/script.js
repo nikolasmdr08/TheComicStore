@@ -59,6 +59,27 @@ window.onload = () => {
 
 }
 
+const formSubmit = document.getElementById("recibiNoticiasBTN");
+//console.log(formSubmit + "hola")
+formSubmit.addEventListener('click', recibiNoticias);
+
+function recibiNoticias(){
+    const email = document.getElementById("recibiNoticiasEmail");
+    if(email.value === ""){
+        Swal.fire({
+            icon: 'error',
+            title: 'Atencion',
+            text: 'Debe ingregar una direccion de E-mail'
+        })
+    }
+    else{
+        Swal.fire({
+            icon: 'success',
+            title: 'se registro con exito',
+            timer: 1500
+          })
+    }
+}
 
 selectElement.addEventListener('change', (event) => {
     definirMoneda(event.target.value)
@@ -95,6 +116,12 @@ function agregarItem(idItem, descripcion, cantidadItem, precioItem){
     localStorage.setItem("cantItems",cantItems)  
     let spanCarrito = document.getElementById("itemsCar")
     spanCarrito.innerHTML = cantItems
+    Swal.fire({
+        icon: 'success',
+        title: 'Se agrego al carrito de compras',
+        showConfirmButton: true,
+        timer: 1500
+      })
 }
 
 function calcularTotal(){

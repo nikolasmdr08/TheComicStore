@@ -7,6 +7,7 @@
     <title>The Comic Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="CSS/style.css">
     <script src="JS/comic.js"></script>
     <script defer src="JS/script.js"></script>
@@ -55,14 +56,14 @@
     </div>
     
     <!-- pre -->
+
     <div class="seccion_noticias middleConteiner">
         <div class=" seccion_noticias middle">
             <span><b>ENTERATE PRIMERO Y RECIBÍ BENEFICIOS</b></span>
-            <form action="">
+            <form id="recibiNoticias">
                 <div class="wrapper">
-                    <input type="text" id="text">
-                    <input type="submit" value="Enviar">
-                    
+                    <input type="text" placeholder="Brindanos tu E-mail" id="recibiNoticiasEmail">
+                    <input type="button" value="Enviar" id="recibiNoticiasBTN">
                 </div>
                 <label>
                     <input id="chk_box" type="checkbox" >
