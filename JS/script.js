@@ -137,9 +137,9 @@ function agregarItem(idItem, descripcion, cantidadItem, precioItem){
 function agregarItemAModal(idItem, descripcion, cantidadItem, precioItem){
     let item = 
         `<li class="listItems">
-            <span id="carList_nombre">${descripcion}</span>
-            <input type="number" name="cant" id="carList_cant" value="${cantidadItem}">
-            <span id="carList_precio">$${(precioItem*monedaActual).toFixed(2)}</span>
+            <span class="restricion" id="carList_nombre">${descripcion}</span>
+            <input class="restricion" type="number" name="cant" id="carList_cant" value="${cantidadItem}">
+            <span class="restricion" id="carList_precio">$${(precioItem*monedaActual).toFixed(2)}</span>
             <a href="eliminarItem(${idItem})"><i class="bi bi-trash"></i></a>
         </li>`;
 

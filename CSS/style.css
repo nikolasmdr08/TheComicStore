@@ -162,7 +162,7 @@ nav #navbarNav{
     align-items: center;
     border-radius: 15px;
     flex-wrap: nowrap;
-    justify-content: space-between;    
+    justify-content: flex-end;   
 }
 .card_item img{
     border-radius: 15px;
@@ -200,6 +200,10 @@ nav #navbarNav{
     border: none;
 }
 
+#carList{
+    margin-left: -30px;
+}
+
 #list{
     display: flex;
     flex-direction: column;
@@ -212,7 +216,7 @@ nav #navbarNav{
 
 #list .listItems{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 250px 50px 50px 50px;
     align-content: space-around;
     justify-content: space-evenly;
     justify-items: center;
@@ -220,6 +224,12 @@ nav #navbarNav{
     border: solid 1px #979595;
     padding: 5px;
 }
+
+#list .listItems .restricion {
+    width: 90%;
+}
+
+
 
 @media (min-width: 768px) {
 
@@ -299,7 +309,7 @@ nav #navbarNav{
     .seccion_noticias span {
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 5px;
     }    
     
     .item {
