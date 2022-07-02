@@ -27,7 +27,7 @@ class ItemCarrito{
 }
 
 window.onload = () => {
-    document.querySelector(".card").innerHTML = ""
+    document.querySelector(".cards").innerHTML = ""
     items.forEach( 
         item => {
             let itemActual = `
@@ -37,7 +37,7 @@ window.onload = () => {
                     <span class="precio">$${(item.precio*monedaActual).toFixed(2)}</span>
                     <a onClick="agregarItem('btn${item.img}', '${item.nombre}', 1, ${item.precio.toFixed(2)})" ><i class="bi bi-plus-circle-fill"></i></a>
                 </div>`
-            let itemsList = document.querySelector(".card")
+            let itemsList = document.querySelector(".cards")
             itemsList.innerHTML += itemActual
         }
     )
@@ -57,10 +57,14 @@ window.onload = () => {
     let selectorSelectedMoneda = document.getElementById(monedaSeleccionada)
     selectorSelectedMoneda.selected = true
 
+    car.forEach( elemnto => 
+        agregarItemAModal(elemnto.id, elemnto.descripcion, elemnto.cantidad, elemnto.precioUnitario)  
+    
+    )
+
 }
 
 const formSubmit = document.getElementById("recibiNoticiasBTN");
-//console.log(formSubmit + "hola")
 formSubmit.addEventListener('click', recibiNoticias);
 
 function recibiNoticias(){
@@ -110,18 +114,38 @@ function elementoACargar(){
 
 function agregarItem(idItem, descripcion, cantidadItem, precioItem){
     car.push(new ItemCarrito(idItem, descripcion, cantidadItem, precioItem));
+    //guardar lista del carrito en localstorage
     localStorage.removeItem('carrito');
     localStorage.setItem("carrito",JSON.stringify(car))
+    //guardar cantidad en localstorage
     cantItems+= 1
     localStorage.setItem("cantItems",cantItems)  
+    //numero de items en html
     let spanCarrito = document.getElementById("itemsCar")
     spanCarrito.innerHTML = cantItems
+    // agregar item visible a carrito
+    agregarItemAModal(idItem, descripcion, cantidadItem, precioItem);
+    // alerta ok
     Swal.fire({
         icon: 'success',
         title: 'Se agrego al carrito de compras',
         showConfirmButton: true,
         timer: 1500
-      })
+    })
+}
+
+function agregarItemAModal(idItem, descripcion, cantidadItem, precioItem){
+    let item = 
+        `<li class="listItems">
+            <span id="carList_nombre">${descripcion}</span>
+            <input type="number" name="cant" id="carList_cant" value="${cantidadItem}">
+            <span id="carList_precio">$${(precioItem*monedaActual).toFixed(2)}</span>
+            <a href="eliminarItem(${idItem})"><i class="bi bi-trash"></i></a>
+        </li>`;
+
+    let modalCarrito = document.getElementById("list");
+    modalCarrito.innerHTML += item;
+
 }
 
 function calcularTotal(){
