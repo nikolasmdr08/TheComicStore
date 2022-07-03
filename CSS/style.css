@@ -189,7 +189,7 @@ nav #navbarNav{
     font-size: 40px;
 }
 
-#btnCar{
+#btnCar, #btnPerson{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;

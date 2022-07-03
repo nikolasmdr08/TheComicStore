@@ -27,20 +27,24 @@ class ItemCarrito{
 }
 
 window.onload = () => {
-    document.querySelector(".cards").innerHTML = ""
-    items.forEach( 
-        item => {
-            let itemActual = `
-                <div class="card_item">
-                    <img src="IMAGES/${item.img}.jpg" alt="${item.img}" width="175" height="175">
-                    <span class="nombre">${item.nombre}</span>
-                    <span class="precio">$${(item.precio*monedaActual).toFixed(2)}</span>
-                    <a onClick="agregarItem('btn${item.img}', '${item.nombre}', 1, ${item.precio.toFixed(2)})" ><i class="bi bi-plus-circle-fill"></i></a>
-                </div>`
-            let itemsList = document.querySelector(".cards")
-            itemsList.innerHTML += itemActual
-        }
-    )
+
+    tablero = document.querySelector(".cards");
+    if(tablero!==null){
+        document.querySelector(".cards").innerHTML = ""
+        items.forEach( 
+            item => {
+                let itemActual = `
+                    <div class="card_item">
+                        <img src="IMAGES/${item.img}.jpg" alt="${item.img}" width="175" height="175">
+                        <span class="nombre">${item.nombre}</span>
+                        <span class="precio">$${(item.precio*monedaActual).toFixed(2)}</span>
+                        <a onClick="agregarItem('btn${item.img}', '${item.nombre}', 1, ${item.precio.toFixed(2)})" ><i class="bi bi-plus-circle-fill"></i></a>
+                    </div>`
+                let itemsList = document.querySelector(".cards")
+                itemsList.innerHTML += itemActual
+            }
+        )
+    }
         
     //numero items carrito
     if(parseInt(localStorage.getItem("cantItems"))>0){
@@ -56,11 +60,18 @@ window.onload = () => {
     //moneda seleccionada
     let selectorSelectedMoneda = document.getElementById(monedaSeleccionada)
     selectorSelectedMoneda.selected = true
-
-    car.forEach( elemnto => 
-        agregarItemAModal(elemnto.id, elemnto.descripcion, elemnto.cantidad, elemnto.precioUnitario)  
     
-    )
+    if(car.length!==0){
+        car.forEach( elemnto => 
+            {
+                agregarItemAModal(elemnto.id, elemnto.descripcion, elemnto.cantidad, elemnto.precioUnitario)  
+            }
+        )
+    }
+    else{
+        document.getElementById("list").innerHTML = "No se ha seleccionado ningun producto. 😢"
+    }
+    
 
 }
 
@@ -124,7 +135,12 @@ function agregarItem(idItem, descripcion, cantidadItem, precioItem){
     let spanCarrito = document.getElementById("itemsCar")
     spanCarrito.innerHTML = cantItems
     // agregar item visible a carrito
-    agregarItemAModal(idItem, descripcion, cantidadItem, precioItem);
+    document.getElementById("list").innerHTML = ""
+    car.forEach( elemnto => 
+        {
+            agregarItemAModal(elemnto.id, elemnto.descripcion, elemnto.cantidad, elemnto.precioUnitario)  
+        }
+    )
     // alerta ok
     Swal.fire({
         icon: 'success',
@@ -140,12 +156,44 @@ function agregarItemAModal(idItem, descripcion, cantidadItem, precioItem){
             <span class="restricion" id="carList_nombre">${descripcion}</span>
             <input class="restricion" type="number" name="cant" id="carList_cant" value="${cantidadItem}">
             <span class="restricion" id="carList_precio">$${(precioItem*monedaActual).toFixed(2)}</span>
-            <a href="eliminarItem(${idItem})"><i class="bi bi-trash"></i></a>
+            <a onclick="eliminarItem(${idItem})"><i class="bi bi-trash"></i></a>
         </li>`;
 
     let modalCarrito = document.getElementById("list");
     modalCarrito.innerHTML += item;
 
+}
+
+function eliminarItem(id){
+
+}
+
+const comentarios = document.getElementById("comentarios")
+comentarios!==null ? comentarios.addEventListener('click', guardarComentario) : ""
+
+
+function guardarComentario(){
+    const email  = document.getElementById("email")
+    const nombre  = document.getElementById("nombre")
+    const mensaje  = document.getElementById("mensaje")
+
+    if(email.value !== "" && nombre.value !== "" && mensaje.value !== ""){
+        email.value = ""
+        nombre.value = ""
+        mensaje.value = ""
+        Swal.fire({
+            icon: 'success',
+            title: 'Mensaje enviado con exito',
+            timer: 1500
+        })
+    }
+    else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Atencion',
+            text: 'Verifique que los campos esten completos'
+          })
+    }
 }
 
 function calcularTotal(){
