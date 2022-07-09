@@ -28,23 +28,7 @@ class ItemCarrito{
 
 window.onload = () => {
 
-    tablero = document.querySelector(".cards");
-    if(tablero!==null){
-        document.querySelector(".cards").innerHTML = ""
-        items.forEach( 
-            item => {
-                let itemActual = `
-                    <div class="card_item">
-                        <img src="IMAGES/${item.img}.jpg" alt="${item.img}" width="175" height="175">
-                        <span class="nombre">${item.nombre}</span>
-                        <span class="precio">$${(item.precio*monedaActual).toFixed(2)}</span>
-                        <a onClick="agregarItem('btn${item.img}', '${item.nombre}', 1, ${item.precio.toFixed(2)})" ><i class="bi bi-plus-circle-fill"></i></a>
-                    </div>`
-                let itemsList = document.querySelector(".cards")
-                itemsList.innerHTML += itemActual
-            }
-        )
-    }
+    obtenerItems(); /// async
         
     //numero items carrito
     if(parseInt(localStorage.getItem("cantItems"))>0){
@@ -73,6 +57,30 @@ window.onload = () => {
     }
     
 
+}
+
+let contenidoJSON = []
+const obtenerItems = async () => {
+    const response = await fetch(URL)
+    contenidoJSON = await response.json()
+    
+    tablero = document.querySelector(".cards");
+    if(tablero!==null){
+        document.querySelector(".cards").innerHTML = ""
+        contenidoJSON.forEach( 
+            item => {
+                let itemActual = `
+                    <div class="card_item">
+                        <img src="IMAGES/${item.img}.jpg" alt="${item.img}" width="175" height="175">
+                        <span class="nombre">${item.nombre}</span>
+                        <span class="precio">$${(item.precio*monedaActual).toFixed(2)}</span>
+                        <a onClick="agregarItem('btn${item.img}', '${item.nombre}', 1, ${item.precio.toFixed(2)})" ><i class="bi bi-plus-circle-fill"></i></a>
+                    </div>`
+                let itemsList = document.querySelector(".cards")
+                itemsList.innerHTML += itemActual
+            }
+        )
+    }
 }
 
 const formSubmit = document.getElementById("recibiNoticiasBTN");
