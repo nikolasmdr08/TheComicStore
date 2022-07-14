@@ -191,7 +191,27 @@ function editarCantidad(item,id){
     let cantidad = parseInt(document.getElementById(item).value)
     car.find(elemento => elemento.id = id).cantidad = cantidad
     document.getElementById(item).value = cantidad
-    console.log(car)
+
+    localStorage.removeItem('carrito');
+    localStorage.setItem("carrito",JSON.stringify(car))
+
+    document.getElementById("list").innerHTML = ""
+    car.forEach( elemnto => 
+        {
+            agregarItemAModal(elemnto.id, elemnto.descripcion, elemnto.cantidad, elemnto.precioUnitario)  
+        }
+    )
+    let total = 
+    `
+    <li class="listItems">
+        <div colspan="2"></div>
+        <span class="restricion"> TOTAL </span>
+        <span class="restricion">$${calcularTotal()} </span>
+    </li>
+    `
+    let modalCarrito = document.getElementById("list");
+    modalCarrito.innerHTML += total;
+
 }
 
 function eliminarItem(id){
