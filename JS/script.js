@@ -11,6 +11,16 @@ else{
     car = []
 }
 
+if(monedaActual === null){
+    monedaActual = 1
+    localStorage.setItem("monedaActual",monedaActual)
+}
+
+if(monedaSeleccionada === null){
+    monedaSeleccionada = 'PE'
+    localStorage.setItem("monedaSeleccionada",monedaSeleccionada)
+}
+
 let cantItems = 0
 
 class ItemCarrito{
