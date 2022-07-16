@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/styleContacto.css">
     <script defer src="JS/script.js"></script>
+    <script src="JS/manga.js"></script>
 </head>
 <body>
     <!-- header -->
@@ -68,7 +69,6 @@
         </div>
     </div>
     
-    <!-- pre -->
     <div class="seccion_noticias middleConteiner">
         <div class=" seccion_noticias middle">
             <span><b>ENTERATE PRIMERO Y RECIBÍ BENEFICIOS</b></span>
@@ -84,53 +84,53 @@
             </form>
         </div>
     </div>
-    <!-- END pre -->
     <!-- END body -->
-    <!-- footer -->
-    <div class="footer">
-        <div class="seccion_noticias" >
-            <div class="redes">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-twitter"></i>
-                <i class="bi bi-twitch"></i>
-            </div>
-            <span>COPYRIGHT © 2022 THE COMIC STORE</span>
+ <!-- footer -->
+ <div class="footer">
+    <div class="seccion_noticias" >
+        <div class="redes">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-twitch"></i>
         </div>
+        <span>COPYRIGHT © 2022 THE COMIC STORE</span>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div id="carList">
+                <ul class="list" id="list">
+                    
+                </ul>
             </div>
-            <div class="modal-body">
-                <div id="carList">
-                    <ul class="list" id="list">
-                        
-                    </ul>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary" id="confirmarCompra">Continuar</button>
-            </div>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="confirmarCompra">Continuar</button>
         </div>
       </div>
-    <!-- END footer -->
-    <script>
-        if(parseInt(localStorage.getItem("cantItems"))>0){
-            cantItems = parseInt(localStorage.getItem("cantItems"))
-        }
-        else{
-            cantItems = 0
-        }
+    </div>
+  </div>
+<!-- END footer -->
+<script>
+    if(parseInt(localStorage.getItem("cantItems"))>0){
+        cantItems = parseInt(localStorage.getItem("cantItems"))
+    }
+    else{
+        cantItems = 0
+    }
 
-        
-        let spanCarrito = document.getElementById("itemsCar")
-        spanCarrito.innerHTML = cantItems
-    </script>
+    
+    let spanCarrito = document.getElementById("itemsCar")
+    spanCarrito.innerHTML = cantItems
+</script>
 </body>
 </html>
