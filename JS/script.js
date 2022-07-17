@@ -120,6 +120,28 @@ function recibiNoticias(){
     }
 }
 
+confirmarCompra.addEventListener('click', ConfirmarCompra);
+
+function ConfirmarCompra(){
+
+    let modal = document.getElementById("exampleModal")
+    modal.style.display = 'none'
+
+    cantItems = 0
+    let spanCarrito = document.getElementById("itemsCar")
+    spanCarrito.innerHTML = cantItems
+    localStorage.setItem("cantItems",cantItems)  
+
+    car = []
+    let modalCarrito = document.getElementById("list");
+    modalCarrito.innerHTML = "No se ha seleccionado ningun producto. 😢";
+    localStorage.removeItem('carrito');
+    Swal.fire({
+        icon: 'success',
+        title: 'se registro con exito'
+    })
+}
+
 selectElement.addEventListener('change', (event) => {
     definirMoneda(event.target.value)
 });
